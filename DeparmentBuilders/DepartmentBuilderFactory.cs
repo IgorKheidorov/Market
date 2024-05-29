@@ -1,5 +1,9 @@
-﻿using OOPSample.Interfaces;
+﻿using HyperMarket.Infrastructure;
+using HyperMarket.Interfaces;
+using HyperMarket.Repositories;
+using OOPSample.Interfaces;
 using OOPSample.Repositories;
+using System.Configuration;
 
 namespace OOPSample.DeparmentBuilders;
 
@@ -24,9 +28,12 @@ internal class DepartmentBuilderFactory
     }
 
     private DepartmentBuilderFactory()
-    {  
-        _builders.Add(new FoodDeparmentBuilder(new JSONFoodRepository()));
-        _builders.Add(new ElectronicsDepartmentBuilder(new JSONElectronicsRepository()));
+    {
+        string source = ConfigurationManager.AppSettings["UnitOfWorkSource"] ?? "";
+        IUnitOfWork unitOfWork = source == "JSON" ? new UnitOfWork() : null;
+        
+        _builders.Add(new FoodDeparmentBuilder(unitOfWork));
+        _builders.Add(new ElectronicsDepartmentBuilder(unitOfWork));
     }
 
     public IDepartmentBuilder GetBuilder(string name) => _builders.FirstOrDefault(x => (x as DepartmentBuilder)?.Name == name) ?? throw new ArgumentException(); 

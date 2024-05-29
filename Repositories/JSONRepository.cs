@@ -12,22 +12,22 @@ internal class JSONRepository<T> : IRepository<T>
 
     public IEnumerable<T> GetAll()
     {
-        var jsonString = FullFileName;
-        try
+        if (!File.Exists(FullFileName))
         {
-            jsonString = File.ReadAllText(FullFileName);
+            SaveAll(new List<T>());
         }
-        catch (Exception ex)
-        {
-          
-        }
+        using StreamReader reader = new StreamReader(FullFileName);
         
-        return JsonSerializer.Deserialize<List<T>>(jsonString);        
+        return JsonSerializer.Deserialize<List<T>>(reader.ReadToEnd());    
     }
 
     public bool SaveAll(IEnumerable<T> products)
     {
-        File.WriteAllText(RepositoryFileName, JsonSerializer.Serialize(products));
-        return true;
+        using (StreamWriter writer = new StreamWriter(FullFileName))
+        {
+            var jsonString = JsonSerializer.Serialize<List<T>>(products.ToList());
+            writer.Write(jsonString);
+            return true;
+        }
     }
 }
