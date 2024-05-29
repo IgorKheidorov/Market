@@ -1,5 +1,6 @@
 ﻿using OOPSample.Entitys;
 using OOPSample.Interfaces;
+using OOPSample.Repositories;
 
 namespace OOPSample.DeparmentBuilders;
 
@@ -7,7 +8,7 @@ internal class ElectronicsDepartmentBuilder: DepartmentBuilder
 {
     public override string Name { get; protected set; } = "Electonics";
     
-    public ElectronicsDepartmentBuilder(IRepository<Product> repository) : base(repository) { }
+    public ElectronicsDepartmentBuilder(JSONRepository<Product> repository) : base(repository) { }
 
     public override List<SellerConsultant> BuildConsultants()
     {

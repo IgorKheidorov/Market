@@ -1,5 +1,6 @@
 ﻿using OOPSample.Entitys;
 using OOPSample.Interfaces;
+using OOPSample.Repositories;
 
 namespace OOPSample.DeparmentBuilders
 {
@@ -7,9 +8,9 @@ namespace OOPSample.DeparmentBuilders
     {
         public abstract string Name { get; protected set; }
         
-        protected IRepository<Product> _repository;
+        protected JSONRepository<Product> _repository;
 
-        protected DepartmentBuilder(IRepository<Product> repository) =>        
+        protected DepartmentBuilder(JSONRepository<Product> repository) =>        
             _repository = repository is not null ? repository : throw new ArgumentNullException();
 
         public abstract List<SellerConsultant> BuildConsultants();

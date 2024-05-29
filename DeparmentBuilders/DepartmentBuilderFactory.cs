@@ -8,6 +8,7 @@ internal class DepartmentBuilderFactory
     // Singleton
     #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private static DepartmentBuilderFactory _factory;
+    private JSONFoodRepository _foodRepo;
     #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
     private List<IDepartmentBuilder> _builders = new ();
@@ -16,7 +17,7 @@ internal class DepartmentBuilderFactory
     {
         if (_factory is null)
         {
-            _factory = new DepartmentBuilderFactory();
+            _factory = new DepartmentBuilderFactory();            
         }
 
         return _factory;
