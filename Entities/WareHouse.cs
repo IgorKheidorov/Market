@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using HyperMarket.DAL;
 
-namespace OOPSample.Entitys;
+namespace OOPSample.Entities;
 
 internal class WareHouse : Entity, IEnumerable<Product>
 {
@@ -34,22 +35,7 @@ internal class WareHouse : Entity, IEnumerable<Product>
         _products.Remove(productToBeRemoved);
     }
 
-    private void FillGoodsList()
-    {
-        _products.Add(new Product("Bread", 0.5f));
-        _products.Add(new Product("Bread", 0.5f));
-        _products.Add(new Product("Bread", 0.5f));
-        _products.Add(new Product("Bread", 0.5f));
-        _products.Add(new Product("Bread", 0.5f));
-        _products.Add(new Product("Milk", 1f));
-        _products.Add(new Product("Milk", 1f));
-        _products.Add(new Product("Milk", 1f));
-        _products.Add(new Product("Milk", 1f));
-        _products.Add(new Product("Milk", 1f));
-        _products.Add(new Product("Beer", 2.5f));
-        _products.Add(new Product("Beer", 2.5f));
-        _products.Add(new Product("Beer", 2.5f));
-    }
+    
 
     IEnumerator IEnumerable.GetEnumerator()
     {

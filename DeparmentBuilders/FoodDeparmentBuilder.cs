@@ -1,5 +1,5 @@
 ﻿using HyperMarket.Interfaces;
-using OOPSample.Entitys;
+using OOPSample.Entities;
 using OOPSample.Interfaces;
 using OOPSample.Repositories;
 
@@ -15,12 +15,12 @@ internal class FoodDeparmentBuilder : DepartmentBuilder
     {
         /// flexiblibity (to change code with minimum risk) == add new abstarction level
         WareHouse house = new();
-        _unitOfWork.GetFoodProducts().ForEach(x => house.AddProduct(x));
+        _unitOfWork.GetProducts().Where(x => x.Category == "Food").ToList().ForEach(x => house.AddProduct(x));
         return house;
     }
 
     public override List<SellerConsultant> BuildConsultants() =>
-        _unitOfWork.GetFoodDepartmentSellerConsultants();
+        _unitOfWork.GetFoodDepartmentSellerConsultants().ToList();
 
     public override List<string> BuildEquipment()
     {

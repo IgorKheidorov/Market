@@ -1,12 +1,13 @@
 ﻿
-using OOPSample.Entitys;
+using OOPSample.Entities;
 
 namespace HyperMarket.Interfaces;
 
 internal interface IUnitOfWork
 {
-    List<Product> GetFoodProducts();
-    List<Product> GetElectronicProducts();
-    List<SellerConsultant> GetFoodDepartmentSellerConsultants();
-    List<SellerConsultant> GetElectronicsDepartmentSellerConsultants();
+    IEnumerable<Product> GetProducts();
+    IEnumerable<SellerConsultant> GetFoodDepartmentSellerConsultants();
+    IEnumerable<SellerConsultant> GetElectronicsDepartmentSellerConsultants();
+    bool SaveProducts(IEnumerable<Product> products);
+    bool SaveConsultants(IEnumerable<SellerConsultant> consultants);
 }

@@ -1,6 +1,7 @@
-﻿using OOPSample.Financials;
+﻿using HyperMarket.DAL;
+using OOPSample.Financials;
 
-namespace OOPSample.Entitys;
+namespace OOPSample.Entities;
 internal class PurchaseEventArgs : EventArgs
 {
     public string? ProductName { get; }
@@ -30,7 +31,7 @@ internal class Buyer
         _wallet = CreateWallet();
     }
 
-    public List<Entity> Purchases { get; } = new List<Entity>();
+    public List<Product> Purchases { get; } = new List<Product>();
 
     public bool Pay(string productName, float sum)
     {
@@ -48,7 +49,7 @@ internal class Buyer
         return false;
     }
 
-    public void AddPurchase(Entity product)
+    public void AddPurchase(Product product)
     {
         Purchases.Add(product);
     }

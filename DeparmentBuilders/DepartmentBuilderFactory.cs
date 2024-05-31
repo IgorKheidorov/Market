@@ -1,8 +1,6 @@
 ﻿using HyperMarket.Infrastructure;
 using HyperMarket.Interfaces;
-using HyperMarket.Repositories;
 using OOPSample.Interfaces;
-using OOPSample.Repositories;
 using System.Configuration;
 
 namespace OOPSample.DeparmentBuilders;
@@ -12,7 +10,6 @@ internal class DepartmentBuilderFactory
     // Singleton
     #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private static DepartmentBuilderFactory _factory;
-    private JSONFoodRepository _foodRepo;
     #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
     private List<IDepartmentBuilder> _builders = new ();
@@ -30,7 +27,7 @@ internal class DepartmentBuilderFactory
     private DepartmentBuilderFactory()
     {
         string source = ConfigurationManager.AppSettings["UnitOfWorkSource"] ?? "";
-        IUnitOfWork unitOfWork = source == "JSON" ? new UnitOfWork() : null;
+        IUnitOfWork unitOfWork = source == "JSON" ? new UnitOfWork() : throw new ArgumentNullException();
         
         _builders.Add(new FoodDeparmentBuilder(unitOfWork));
         _builders.Add(new ElectronicsDepartmentBuilder(unitOfWork));

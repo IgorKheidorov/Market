@@ -1,5 +1,5 @@
 ﻿using HyperMarket.Interfaces;
-using OOPSample.Entitys;
+using OOPSample.Entities;
 using OOPSample.Interfaces;
 using OOPSample.Repositories;
 

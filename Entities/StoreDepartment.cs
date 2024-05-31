@@ -1,6 +1,8 @@
-﻿namespace OOPSample.Entitys;
+﻿using HyperMarket.DAL;
 
-internal class StoreDepartment : Entity
+namespace OOPSample.Entities;
+
+internal class StoreDepartment 
 {
     public string Name { get; }
 

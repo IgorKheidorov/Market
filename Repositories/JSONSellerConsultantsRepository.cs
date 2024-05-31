@@ -1,4 +1,4 @@
-﻿using OOPSample.Entitys;
+﻿using OOPSample.Entities;
 using OOPSample.Repositories;
 
 namespace HyperMarket.Repositories;
