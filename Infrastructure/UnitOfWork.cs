@@ -33,13 +33,12 @@ internal class UnitOfWork : IUnitOfWork
         Enumerable.Range(1, product.Count)
         .Select(x=> new Product(product.Name, product.Category, product.Price, new ProductDescription() { Details = description.Details })).ToList();
 
-
-    public IEnumerable<Product> GetProducts() 
+    public IEnumerable<Product> GetProducts(Func<Product, bool> filter) 
     {
         var productDescriptionEntities = JSONProductDescriptionRepository.GetAll();
         return JSONProductRepository.GetAll()
-            .SelectMany(x=> PopulateProduct(x, productDescriptionEntities.FirstOrDefault(y => y.Id == x.DescriptionID)))
-            .ToList();
+            .SelectMany(x=> PopulateProduct(x, productDescriptionEntities.FirstOrDefault(y => y.Id == x.DescriptionID))).
+            Where(filter).ToList();
     } 
 
     public bool SaveConsultants(IEnumerable<SellerConsultant> consultants)

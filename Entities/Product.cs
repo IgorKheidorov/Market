@@ -1,14 +1,13 @@
-﻿using HyperMarket.DAL;
-using HyperMarket.Entityies;
+﻿using HyperMarket.Entityies;
 
 namespace OOPSample.Entities;
 
 internal class Product 
 {
     public string Name { get; private set; }
-    public string Category { get; set; }
+    public string Category { get; set; } // enum
     public float Price { get; private set; }
-
+    
     public ProductDescription Description { get; set; } = new ProductDescription();
 
     public Product(string name, string category, float price, ProductDescription desciption)

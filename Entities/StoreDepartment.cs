@@ -1,6 +1,4 @@
-﻿using HyperMarket.DAL;
-
-namespace OOPSample.Entities;
+﻿namespace OOPSample.Entities;
 
 internal class StoreDepartment 
 {

@@ -26,7 +26,9 @@ internal class ElectronicsDepartmentBuilder: DepartmentBuilder
     {
         /// flexiblibity (to change code with minimum risk) == add new abstarction level
         WareHouse house = new();
-        _unitOfWork.GetProducts().Where(x=> x.Category == "Electronics").ToList().ForEach(x => house.AddProduct(x));
+        _unitOfWork.GetProducts(x => x.Category == "Electronics")
+            .ToList().ForEach(x => house.AddProduct(x));
+
         return house;
     }
 }

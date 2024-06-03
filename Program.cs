@@ -1,5 +1,7 @@
-﻿using HyperMarket.Common;
+﻿
+using HyperMarket.Common;
 using HyperMarket.Infrastructure;
+using HyperMarket.Interfaces;
 using OOPSample.Entities;
 using System;
 using System.Diagnostics;
@@ -56,8 +58,6 @@ internal class Program
         // Main idea of multithreading is that different operations consume different recources and different CPU time
         // copy file -> time consuming -> CPU consuming thery low -> HDD adapter (physics ) very high()
 
-        //var products = EnitytiesInitializer.GetProducts();
-             
         SuperMarket carefour = new SuperMarket("Carefour");        
 
         Buyer buyer1 = new Buyer("Mike", 16);
