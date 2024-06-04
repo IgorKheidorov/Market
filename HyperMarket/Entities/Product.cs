@@ -2,7 +2,7 @@
 
 namespace OOPSample.Entities;
 
-internal class Product 
+public class Product 
 {
     public string Name { get; private set; }
     public string Category { get; set; } // enum

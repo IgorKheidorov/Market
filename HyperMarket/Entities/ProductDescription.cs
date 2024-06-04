@@ -2,7 +2,7 @@
 
 namespace HyperMarket.Entityies;
 
-internal class ProductDescription
+public class ProductDescription
 {
     public Dictionary<string, string> Details { get; set; } = new Dictionary<string, string>();
     public override bool Equals(object? obj) =>

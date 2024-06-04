@@ -4,7 +4,7 @@ using OOPSample.Entities;
 
 namespace HyperMarket.Common;
 
-internal static class EnitytiesInitializer
+public static class EnitytiesInitializer
 {
     public static IEnumerable<Product> GetProducts()
     {

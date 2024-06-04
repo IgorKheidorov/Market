@@ -1,6 +1,6 @@
 ﻿namespace HyperMarket.DAL;
 
-internal class ProductEntity:Entity
+public class ProductEntity: Entity
 {
     public string? Name { get; set; }
     public string? Category { get; set; }
