@@ -1,15 +1,14 @@
-﻿using OOPSample.Interfaces;
-using System.Configuration;
+﻿using SuperMarketEntities.Interfaces;
 using System.Text.Json;
 
-namespace OOPSample.Repositories;
+namespace JSON_Repository.Repositories;
 
 internal abstract class JSONRepository<T> : IRepository<T>
 {
     protected virtual string RepositoryFileName { get; set; } = "";
 
     
-    protected string FullFileName => Path.Combine(ConfigurationManager.AppSettings["Repositories"]?? "", RepositoryFileName);
+    protected string FullFileName => Path.Combine("D:\\Trainings\\SuperMarket\\JSON repository\\Data", RepositoryFileName);
 
     public IEnumerable<T> GetAll()
     {

@@ -1,4 +1,4 @@
-﻿namespace OOPSample.Interfaces;
+﻿namespace SuperMarketEntities.Interfaces;
 
 public interface IRepository<T>
 {

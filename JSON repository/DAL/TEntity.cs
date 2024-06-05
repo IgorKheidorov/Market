@@ -1,4 +1,4 @@
-﻿namespace HyperMarket.DAL;
+﻿namespace JSON_Repository.DAL;
 
 public abstract class TEntity<TKey>
 {

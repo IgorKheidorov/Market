@@ -1,9 +1,8 @@
-﻿using HyperMarket.Interfaces;
-using OOPSample.Entities;
-using OOPSample.Interfaces;
-using OOPSample.Repositories;
+﻿using HyperMarket.Entities;
+using SuperMarketEntities.Entities;
+using SuperMarketEntities.Interfaces;
 
-namespace OOPSample.DeparmentBuilders;
+namespace HyperMarket.DeparmentBuilders;
 
 internal class FoodDeparmentBuilder : DepartmentBuilder
 {

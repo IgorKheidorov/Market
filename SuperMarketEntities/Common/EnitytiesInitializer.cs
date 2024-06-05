@@ -1,8 +1,6 @@
-﻿
-using HyperMarket.Entityies;
-using OOPSample.Entities;
+﻿using SuperMarketEntities.Entities;
 
-namespace HyperMarket.Common;
+namespace SuperMarketEntities.Common;
 
 public static class EnitytiesInitializer
 {
@@ -13,36 +11,36 @@ public static class EnitytiesInitializer
         ProductDescription milkDescription1 = new()
         {
             Details = new() {
-              {"Еat content", "1.5%" },
-              {"Producer", "Milk company" },
-              {"Expirity date", "05-11-2024" },              
+              { new DescriptionEntity("Еat content", "1.5%") },
+              {new DescriptionEntity("Producer", "Milk company") },
+              {new DescriptionEntity("Expirity date", "05-11-2024") },              
             }
         };
 
         ProductDescription milkDescription2 = new()
         {
             Details = new() {
-              {"Еat content", "3.5%" },
-              {"Producer", "Milk company" },
-              {"Expirity date", "05-11-2024" },
+              {new DescriptionEntity("Еat content", "3.5%") },
+              {new DescriptionEntity("Producer", "Milk company") },
+              {new DescriptionEntity("Expirity date", "05-11-2024") },
             }
         };
 
         ProductDescription tvPanasonicDescription = new()
         {
             Details = new() {
-              {"Model", "TX-65LX650E 65\" LED 4K Android TV Dolby Vision Dolby Atmos HDMI 2.1" },
-              {"Producer", "Panasonic" },
-              {"Guarantee period", "5 years"},
+              {new DescriptionEntity("Model", "TX-65LX650E 65\" LED 4K Android TV Dolby Vision Dolby Atmos HDMI 2.1") },
+              {new DescriptionEntity("Producer", "Panasonic") },
+              {new DescriptionEntity("Guarantee period", "5 years")},
             }
         };
 
         ProductDescription iPhoneDescription = new()
         {
             Details = new() {
-              {"Model", "14" },
-              {"Producer", "Apple" },
-              {"Guarantee period", "2 years"},
+              {new DescriptionEntity("Model", "14") },
+              {new DescriptionEntity("Producer", "Apple") },
+              {new DescriptionEntity("Guarantee period", "2 years")},
             }
         };
 

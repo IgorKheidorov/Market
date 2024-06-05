@@ -1,6 +1,6 @@
-﻿using OOPSample.Interfaces;
+﻿using HyperMarket.Interfaces;
 
-namespace OOPSample.Services;
+namespace HyperMarket.Services;
 
 internal class AlcoService : ServiceProvider
 {

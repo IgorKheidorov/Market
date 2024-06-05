@@ -1,6 +1,6 @@
-﻿using OOPSample.Services;
+﻿using HyperMarket.Services;
 
-namespace OOPSample.Commands;
+namespace HyperMarket.Commands;
 
 internal class BarberServiceCommand: Command
 {

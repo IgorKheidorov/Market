@@ -1,6 +1,6 @@
-﻿using HyperMarket.DAL;
+﻿using JSON_Repository.DAL;
 
-namespace OOPSample.Repositories;
+namespace JSON_Repository.Repositories;
 
 internal class JSONProductDescriptionRepository : JSONRepository<ProductDescriptionEntity>
 {

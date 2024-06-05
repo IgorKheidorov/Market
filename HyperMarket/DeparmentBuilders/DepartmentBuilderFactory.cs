@@ -1,9 +1,8 @@
-﻿using HyperMarket.Infrastructure;
-using HyperMarket.Interfaces;
-using OOPSample.Interfaces;
-using System.Configuration;
+﻿using HyperMarket.Interfaces;
+using SuperMarketEntities.Interfaces;
+using JSON_Repository.Infrastructure;
 
-namespace OOPSample.DeparmentBuilders;
+namespace HyperMarket.DeparmentBuilders;
 
 internal class DepartmentBuilderFactory
 {
@@ -26,7 +25,7 @@ internal class DepartmentBuilderFactory
 
     private DepartmentBuilderFactory()
     {
-        string source = ConfigurationManager.AppSettings["UnitOfWorkSource"] ?? "";
+        string source = System.Configuration.ConfigurationManager.AppSettings["UnitOfWorkSource"] ?? "";
         IUnitOfWork unitOfWork = source == "JSON" ? new UnitOfWork() : throw new ArgumentNullException();
         
         _builders.Add(new FoodDeparmentBuilder(unitOfWork));

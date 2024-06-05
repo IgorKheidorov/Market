@@ -1,13 +1,6 @@
-﻿
-using HyperMarket.Common;
-using HyperMarket.Infrastructure;
-using HyperMarket.Interfaces;
-using OOPSample.Entities;
-using System;
+﻿using HyperMarket.Entities;
 using System.Diagnostics;
-using System.Net.WebSockets;
-
-namespace OOPSample;
+namespace HyperMarket;
 
 internal class Program
 {
@@ -57,6 +50,7 @@ internal class Program
 
         // Main idea of multithreading is that different operations consume different recources and different CPU time
         // copy file -> time consuming -> CPU consuming thery low -> HDD adapter (physics ) very high()
+       
 
         SuperMarket carefour = new SuperMarket("Carefour");        
 

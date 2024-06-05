@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperMarket", "HyperMarket\\HyperMarket.csproj", "{8E4633E5-57A0-45D6-81DD-72F54107BB5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperMarket", "HyperMarket\HyperMarket.csproj", "{8E4633E5-57A0-45D6-81DD-72F54107BB5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMarketEntities", "SuperMarketEntities\SuperMarketEntities.csproj", "{D2581F12-1D2D-45F2-8264-D075C5EEE065}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSON repository", "JSON repository\JSON repository.csproj", "{0435375D-1F53-4096-9C3F-E92E2455EE2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8E4633E5-57A0-45D6-81DD-72F54107BB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E4633E5-57A0-45D6-81DD-72F54107BB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E4633E5-57A0-45D6-81DD-72F54107BB5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2581F12-1D2D-45F2-8264-D075C5EEE065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2581F12-1D2D-45F2-8264-D075C5EEE065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2581F12-1D2D-45F2-8264-D075C5EEE065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2581F12-1D2D-45F2-8264-D075C5EEE065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0435375D-1F53-4096-9C3F-E92E2455EE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0435375D-1F53-4096-9C3F-E92E2455EE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0435375D-1F53-4096-9C3F-E92E2455EE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0435375D-1F53-4096-9C3F-E92E2455EE2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

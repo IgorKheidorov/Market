@@ -1,8 +1,8 @@
-﻿using HyperMarket.Interfaces;
-using OOPSample.Entities;
+﻿using HyperMarket.Entities;
+using SuperMarketEntities.Interfaces;
+using SuperMarketEntities.Entities;
 
-
-namespace OOPSample.DeparmentBuilders;
+namespace HyperMarket.DeparmentBuilders;
 
 internal class ElectronicsDepartmentBuilder: DepartmentBuilder
 {

@@ -1,7 +1,7 @@
-﻿using OOPSample.Commands;
-using OOPSample.Interfaces;
+﻿using HyperMarket.Commands;
+using HyperMarket.Interfaces;
 
-namespace OOPSample.Services;
+namespace HyperMarket.Services;
 
 internal class IPhoneRepairementService : ServiceProvider
 {

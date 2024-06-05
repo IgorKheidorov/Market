@@ -1,7 +1,7 @@
-﻿
-using OOPSample.Entities;
+﻿using HyperMarket.Entities;
+using SuperMarketEntities.Entities;
 
-namespace OOPSample.Interfaces;
+namespace HyperMarket.Interfaces;
 
 internal interface IDepartmentBuilder
 {

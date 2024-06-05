@@ -1,13 +1,15 @@
-﻿using HyperMarket.Entityies;
-
-namespace OOPSample.Entities;
+﻿
+namespace SuperMarketEntities.Entities;
 
 public class Product 
 {
+    public int Id { get; set; }
     public string Name { get; private set; }
     public string Category { get; set; } // enum
     public float Price { get; private set; }
-    
+
+    public Product() { }
+
     public ProductDescription Description { get; set; } = new ProductDescription();
 
     public Product(string name, string category, float price, ProductDescription desciption)

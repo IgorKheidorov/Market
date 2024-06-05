@@ -1,9 +1,8 @@
-﻿
-using OOPSample.Entities;
+﻿using SuperMarketEntities.Entities;
 
-namespace HyperMarket.Interfaces;
+namespace SuperMarketEntities.Interfaces;
 
-internal interface IUnitOfWork
+public interface IUnitOfWork
 {
     IEnumerable<Product> GetProducts(Func<Product, bool> filter);
     IEnumerable<SellerConsultant> GetFoodDepartmentSellerConsultants();

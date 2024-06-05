@@ -1,7 +1,7 @@
-﻿using HyperMarket.DAL;
-using OOPSample.Financials;
+﻿using HyperMarket.Financials;
+using SuperMarketEntities.Entities;
 
-namespace OOPSample.Entities;
+namespace HyperMarket.Entities;
 internal class PurchaseEventArgs : EventArgs
 {
     public string? ProductName { get; }

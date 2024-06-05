@@ -1,4 +1,4 @@
-﻿namespace OOPSample.Financials;
+﻿namespace HyperMarket.Financials;
 
 public class CreditCard : PaymentCard
 {

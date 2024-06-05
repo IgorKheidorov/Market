@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using HyperMarket.DAL;
+using SuperMarketEntities.Entities;
 
-namespace OOPSample.Entities;
+namespace HyperMarket.Entities;
 
-internal class WareHouse : Entity, IEnumerable<Product>
+internal class WareHouse : IEnumerable<Product>
 {
     List<Product> _products = new();
     List<string> _specialEquipment = new();

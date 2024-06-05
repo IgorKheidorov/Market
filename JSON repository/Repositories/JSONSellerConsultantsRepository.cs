@@ -1,7 +1,6 @@
-﻿using OOPSample.Entities;
-using OOPSample.Repositories;
+﻿using SuperMarketEntities.Entities;
 
-namespace HyperMarket.Repositories;
+namespace JSON_Repository.Repositories;
 
 internal class JSONSellerConsultantsRepository: JSONRepository<SellerConsultant>
 {

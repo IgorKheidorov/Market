@@ -1,14 +1,11 @@
-﻿using HyperMarket.DAL;
-using HyperMarket.Entityies;
-using HyperMarket.Interfaces;
-using HyperMarket.Repositories;
-using OOPSample.Entities;
-using OOPSample.Repositories;
-using System.Linq;
+﻿using JSON_Repository.DAL;
+using JSON_Repository.Repositories;
+using SuperMarketEntities.Entities;
+using SuperMarketEntities.Interfaces;
 
-namespace HyperMarket.Infrastructure;
+namespace JSON_Repository.Infrastructure;
 
-internal class UnitOfWork : IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
     // allocate memory -> all object are one by one-> memory addresses are finished (more then 90%)
     // GC works _. looks for memory and find not used object (no reference to these objects on stack)
@@ -19,9 +16,9 @@ internal class UnitOfWork : IUnitOfWork
     JSONProductDescriptionRepository _JSONProductDescriptionRepository;
     JSONSellerConsultantsRepository _JSONSellerConsultantsRepository;
         
-    public JSONProductRepository JSONProductRepository => _JSONProductRepository ??= new JSONProductRepository();
-    public JSONSellerConsultantsRepository JSONSellerConsultantsRepository => _JSONSellerConsultantsRepository ??= new JSONSellerConsultantsRepository();
-    public JSONProductDescriptionRepository JSONProductDescriptionRepository => _JSONProductDescriptionRepository ??= new JSONProductDescriptionRepository();
+    internal JSONProductRepository JSONProductRepository => _JSONProductRepository ??= new JSONProductRepository();
+    internal JSONSellerConsultantsRepository JSONSellerConsultantsRepository => _JSONSellerConsultantsRepository ??= new JSONSellerConsultantsRepository();
+    internal JSONProductDescriptionRepository JSONProductDescriptionRepository => _JSONProductDescriptionRepository ??= new JSONProductDescriptionRepository();
 
     public IEnumerable<SellerConsultant> GetElectronicsDepartmentSellerConsultants()=>
         JSONSellerConsultantsRepository.GetAll();

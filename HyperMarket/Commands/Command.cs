@@ -1,6 +1,6 @@
-﻿using OOPSample.Interfaces;
+﻿using HyperMarket.Interfaces;
 
-namespace OOPSample.Commands;
+namespace HyperMarket.Commands;
 
 internal abstract class Command : ICommand
 {

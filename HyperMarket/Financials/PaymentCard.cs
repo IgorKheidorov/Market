@@ -1,4 +1,4 @@
-﻿namespace OOPSample.Financials;
+﻿namespace HyperMarket.Financials;
 
 // all tyoes are inheretitant from object
 public abstract class PaymentCard : IPayment, IComparable<PaymentCard>// CAN'T EXISTS IN A REAL LIFE

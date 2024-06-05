@@ -1,5 +1,5 @@
-﻿using OOPSample.Interfaces;
-namespace OOPSample.Services;
+﻿using HyperMarket.Interfaces;
+namespace HyperMarket.Services;
 
 internal abstract class ServiceProvider : IService
 {

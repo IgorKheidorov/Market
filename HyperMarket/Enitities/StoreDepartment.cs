@@ -1,4 +1,6 @@
-﻿namespace OOPSample.Entities;
+﻿using SuperMarketEntities.Entities;
+
+namespace HyperMarket.Entities;
 
 internal class StoreDepartment 
 {

@@ -1,9 +1,11 @@
-﻿namespace OOPSample.Entities;
+﻿namespace SuperMarketEntities.Entities;
 
-internal class SellerConsultant
+public class SellerConsultant
 {
     public string Name { get; }
     public string Speciality { get; }
+
+    public SellerConsultant() { }
 
     public SellerConsultant(string name, string speciality)
     {

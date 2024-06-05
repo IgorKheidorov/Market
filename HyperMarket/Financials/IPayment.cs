@@ -1,4 +1,4 @@
-﻿namespace OOPSample.Financials;
+﻿namespace HyperMarket.Financials;
 
 // Contract!!!!!!!!!!!!!!!!!
 public interface IPayment

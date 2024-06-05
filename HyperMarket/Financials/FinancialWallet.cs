@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace OOPSample.Financials;
+namespace HyperMarket.Financials;
 
 internal class FinancialWallet : IEnumerable<IPayment>
 {

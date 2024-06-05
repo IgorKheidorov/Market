@@ -1,4 +1,4 @@
-﻿namespace OOPSample.Interfaces;
+﻿namespace HyperMarket.Interfaces;
 
 internal interface IService
 {
