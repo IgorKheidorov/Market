@@ -1,4 +1,4 @@
-﻿namespace OOPSample.Entitys;
+﻿namespace HyperMarket.DAL;
 
 internal abstract class TEntity<TKey>
 {

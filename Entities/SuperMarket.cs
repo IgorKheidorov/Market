@@ -1,9 +1,8 @@
 ﻿using OOPSample.DeparmentBuilders;
 using OOPSample.Interfaces;
 using OOPSample.Services;
-using System.Collections.Concurrent;
 
-namespace OOPSample.Entitys;
+namespace OOPSample.Entities;
 
 internal class SuperMarket
 {

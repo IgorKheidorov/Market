@@ -1,4 +1,8 @@
-﻿using OOPSample.Entitys;
+﻿
+using HyperMarket.Common;
+using HyperMarket.Infrastructure;
+using HyperMarket.Interfaces;
+using OOPSample.Entities;
 using System;
 using System.Diagnostics;
 using System.Net.WebSockets;
@@ -48,14 +52,13 @@ internal class Program
         // THread entity to execute code instructions one process-one (main) thread
         // one CPU with one kernel
         // 2 single thread applications + 1 two-threads application, 4 threads  do some activity ->simulate switch between threads -> ASBOLUTE DEMOCRACY 1/4 part of CPU time
-        
+
         // one CPU- 8 kernels -> 8 threads-> 
 
         // Main idea of multithreading is that different operations consume different recources and different CPU time
         // copy file -> time consuming -> CPU consuming thery low -> HDD adapter (physics ) very high()
 
-        SuperMarket carefour = new SuperMarket("Carefour");
-        
+        SuperMarket carefour = new SuperMarket("Carefour");        
 
         Buyer buyer1 = new Buyer("Mike", 16);
         Buyer buyer2 = new Buyer("Nike", 19);

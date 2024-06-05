@@ -1,5 +1,7 @@
-﻿using OOPSample.Entitys;
+﻿using HyperMarket.Interfaces;
+using OOPSample.Entities;
 using OOPSample.Interfaces;
+using OOPSample.Repositories;
 
 namespace OOPSample.DeparmentBuilders
 {
@@ -7,11 +9,11 @@ namespace OOPSample.DeparmentBuilders
     {
         public abstract string Name { get; protected set; }
         
-        protected IRepository<Product> _repository;
+        protected IUnitOfWork  _unitOfWork;
 
-        protected DepartmentBuilder(IRepository<Product> repository) =>        
-            _repository = repository is not null ? repository : throw new ArgumentNullException();
-
+        protected DepartmentBuilder(IUnitOfWork unitOfWork) =>
+            _unitOfWork = unitOfWork is not null ? unitOfWork : throw new ArgumentNullException();
+  
         public abstract List<SellerConsultant> BuildConsultants();
         public abstract List<string> BuildEquipment();
         public abstract WareHouse BuildWareHouse();

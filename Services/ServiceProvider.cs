@@ -3,9 +3,9 @@ namespace OOPSample.Services;
 
 internal abstract class ServiceProvider : IService
 {
-    protected IService _nextService;
+    protected IService? _nextService;
 
-    public ServiceProvider(IService nextService) 
+    public ServiceProvider(IService? nextService) 
     {
         _nextService = nextService;
     }

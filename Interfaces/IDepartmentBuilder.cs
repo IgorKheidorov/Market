@@ -1,5 +1,5 @@
 ﻿
-using OOPSample.Entitys;
+using OOPSample.Entities;
 
 namespace OOPSample.Interfaces;
 

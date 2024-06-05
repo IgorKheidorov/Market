@@ -1,6 +1,6 @@
-﻿namespace OOPSample.Entitys;
+﻿namespace OOPSample.Entities;
 
-internal class StoreDepartment : Entity
+internal class StoreDepartment 
 {
     public string Name { get; }
 

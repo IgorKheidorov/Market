@@ -4,30 +4,32 @@ using System.Text.Json;
 
 namespace OOPSample.Repositories;
 
-internal class JSONRepository<T> : IRepository<T>
+internal abstract class JSONRepository<T> : IRepository<T>
 {
     protected virtual string RepositoryFileName { get; set; } = "";
 
+    
     protected string FullFileName => Path.Combine(ConfigurationManager.AppSettings["Repositories"]?? "", RepositoryFileName);
 
     public IEnumerable<T> GetAll()
     {
-        var jsonString = FullFileName;
-        try
-        {
-            jsonString = File.ReadAllText(FullFileName);
+        if (!File.Exists(FullFileName))
+        {   
+            SaveAll(new List<T>());
         }
-        catch (Exception ex)
-        {
-          
-        }
+        using StreamReader reader = new StreamReader(FullFileName);
         
-        return JsonSerializer.Deserialize<List<T>>(jsonString);        
+        return JsonSerializer.Deserialize<List<T>>(reader.ReadToEnd());    
     }
 
-    public bool SaveAll(IEnumerable<T> products)
+    
+    public virtual bool SaveAll(IEnumerable<T> products)
     {
-        File.WriteAllText(RepositoryFileName, JsonSerializer.Serialize(products));
-        return true;
+        using (StreamWriter writer = new StreamWriter(FullFileName))
+        {
+            var jsonString = JsonSerializer.Serialize<List<T>>(products.ToList());
+            writer.Write(jsonString);
+            return true;
+        }
     }
 }
