@@ -10,8 +10,8 @@ internal class ElectronicsDepartmentBuilder: DepartmentBuilder
 
     public ElectronicsDepartmentBuilder(IUnitOfWork work) : base(work) { }
 
-    public override List<SellerConsultant> BuildConsultants() =>
-        _unitOfWork.GetElectronicsDepartmentSellerConsultants().ToList();
+    public override List<Employee> BuildConsultants() =>
+        _unitOfWork.GetPersonal().ToList();
 
     public override List<string> BuildEquipment()
     {

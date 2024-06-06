@@ -1,38 +1,25 @@
 ﻿using HyperMarket.DeparmentBuilders;
 using HyperMarket.Interfaces;
 using HyperMarket.Services;
+using SuperMarketEntities.Entities;
+using SuperMarketEntities.Interfaces;
 
 namespace HyperMarket.Entities;
 
-internal class SuperMarket
+internal class HyperMarketItem: IDisposable
 {
     //1. Departments (food, cloths, building materials, electronics, etc...
     public string Name { get; private set; }
     private List<StoreDepartment> _departments = new();
     private ServiceProvider _serviceProvider;
-
-    private static object _locker = new object();
-
-    public static int Number = 0;
-    public static string NumbersString = "";
-
-    public static void ChangeNumber()
-    {
-        Thread.Sleep(500);
-
-         lock (_locker)
-        {
-            NumbersString += Number.ToString();
-            Number++; Number--;
-        }
-    }
-
+    private IUnitOfWork _dataSource;
 
     private List<ICommand> _preOrders = new();
-
-    public SuperMarket(string name)
+    
+    public HyperMarketItem(string name, IUnitOfWork dataSource)
     {
         Name = name;
+        _dataSource = dataSource;
         CreateServices();
         PrepareForOpen();
     }
@@ -48,8 +35,15 @@ internal class SuperMarket
 
     private void PrepareForOpen()
     {
-        _departments.Add(DepartmentBuilderFactory.GetInstance().GetBuilder("Food").Build());
-        _departments.Add(DepartmentBuilderFactory.GetInstance().GetBuilder("Electonics").Build());
+        _departments.Add(InfrastructureBuilderFactory.GetInstance(_dataSource).GetBuilder("Food").Build());
+        _departments.Add(InfrastructureBuilderFactory.GetInstance(_dataSource).GetBuilder("Electonics").Build());
+    }
+
+    public void AddProduct(Product product)
+    {
+        var list = _dataSource.GetProducts(x => true).ToList();
+        list.Add(product);
+        _dataSource.SaveProducts(list);
     }
 
     public void ServeClient(object item, string requestDescription)
@@ -73,4 +67,8 @@ internal class SuperMarket
         return tasks.Select(x => x.Result).ToList();
     }
 
+    public void Dispose()
+    {
+        _dataSource?.Dispose();
+    }
 }

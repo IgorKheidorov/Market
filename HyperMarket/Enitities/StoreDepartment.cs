@@ -6,15 +6,15 @@ internal class StoreDepartment
 {
     public string Name { get; }
 
-    private List<SellerConsultant> _consultunts;
-    private List<string> _equipment;
-    private WareHouse _wareHouse;
+    public List<Employee> Consultants { get; private set; }
+    public List<string> Equipment { get; private set; }
+    public WareHouse WareHouse { get; private set; }
 
-    public StoreDepartment(string name, List<SellerConsultant> consultants, List<string> equipment, WareHouse warhouse)
+    public StoreDepartment(string name, List<Employee> consultants, List<string> equipment, WareHouse warhouse)
     {
         Name = name;
-        _consultunts = consultants;
-        _equipment = equipment;
-        _wareHouse = warhouse;
+        Consultants = consultants;
+        Equipment = equipment;
+        WareHouse = warhouse;
     }
 }

@@ -5,7 +5,7 @@ using SuperMarketEntities.Interfaces;
 
 namespace JSON_Repository.Infrastructure;
 
-public class UnitOfWork : IUnitOfWork
+public class JsonUnitOfWork : IUnitOfWork
 {
     // allocate memory -> all object are one by one-> memory addresses are finished (more then 90%)
     // GC works _. looks for memory and find not used object (no reference to these objects on stack)
@@ -14,17 +14,20 @@ public class UnitOfWork : IUnitOfWork
 
     JSONProductRepository _JSONProductRepository;
     JSONProductDescriptionRepository _JSONProductDescriptionRepository;
-    JSONSellerConsultantsRepository _JSONSellerConsultantsRepository;
+    JSONEmployeeRepository _JSONEmployeeRepository;
         
-    internal JSONProductRepository JSONProductRepository => _JSONProductRepository ??= new JSONProductRepository();
-    internal JSONSellerConsultantsRepository JSONSellerConsultantsRepository => _JSONSellerConsultantsRepository ??= new JSONSellerConsultantsRepository();
-    internal JSONProductDescriptionRepository JSONProductDescriptionRepository => _JSONProductDescriptionRepository ??= new JSONProductDescriptionRepository();
+    public string Name { get; }
+    public string SourcePath { get; }
 
-    public IEnumerable<SellerConsultant> GetElectronicsDepartmentSellerConsultants()=>
-        JSONSellerConsultantsRepository.GetAll();
 
-    public IEnumerable<SellerConsultant> GetFoodDepartmentSellerConsultants()=>
-        JSONSellerConsultantsRepository.GetAll();
+    public JsonUnitOfWork(string name, string sourcePath) 
+    {
+        Name = name;
+        SourcePath = sourcePath;
+        _JSONProductDescriptionRepository = new(Name, SourcePath);
+        _JSONProductRepository = new(Name, SourcePath);
+        _JSONEmployeeRepository = new(Name, SourcePath);
+    }
 
     private List<Product> PopulateProduct(ProductEntity product, ProductDescriptionEntity? description)=>
         Enumerable.Range(1, product.Count)
@@ -32,17 +35,13 @@ public class UnitOfWork : IUnitOfWork
 
     public IEnumerable<Product> GetProducts(Func<Product, bool> filter) 
     {
-        var productDescriptionEntities = JSONProductDescriptionRepository.GetAll();
-        return JSONProductRepository.GetAll()
+        var productDescriptionEntities = _JSONProductDescriptionRepository.GetAll();
+        return _JSONProductRepository.GetAll()
             .SelectMany(x=> PopulateProduct(x, productDescriptionEntities.FirstOrDefault(y => y.Id == x.DescriptionID))).
             Where(filter).ToList();
     } 
 
-    public bool SaveConsultants(IEnumerable<SellerConsultant> consultants)
-    {
-        throw new NotImplementedException();
-    }
-
+ 
     public bool SaveProducts(IEnumerable<Product> products)
     {
         var entities = products
@@ -64,9 +63,20 @@ public class UnitOfWork : IUnitOfWork
         // Set DescriptionID to products
         entities.ForEach(x => x.Item1.DescriptionID = x.Item2.Id);
 
-        JSONProductRepository.SaveAll(entities.Select(x => x.Item1));
-        JSONProductDescriptionRepository.SaveAll(entities.Select(x => x.Item2));
+        _JSONProductRepository.SaveAll(entities.Select(x => x.Item1));
+        _JSONProductDescriptionRepository.SaveAll(entities.Select(x => x.Item2));
 
         return true;
+    }
+
+    public IEnumerable<Employee> GetPersonal() =>
+        _JSONEmployeeRepository.GetAll();
+
+    public bool SavePersonal(IEnumerable<Employee> employees) =>
+        _JSONEmployeeRepository.SaveAll(employees);
+
+    public void Dispose()
+    {
+        
     }
 }

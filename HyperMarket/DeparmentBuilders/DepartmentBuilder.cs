@@ -14,7 +14,7 @@ internal abstract class DepartmentBuilder : IDepartmentBuilder
     protected DepartmentBuilder(IUnitOfWork unitOfWork) =>
         _unitOfWork = unitOfWork is not null ? unitOfWork : throw new ArgumentNullException();
 
-    public abstract List<SellerConsultant> BuildConsultants();
+    public abstract List<Employee> BuildConsultants();
     public abstract List<string> BuildEquipment();
     public abstract WareHouse BuildWareHouse();
 

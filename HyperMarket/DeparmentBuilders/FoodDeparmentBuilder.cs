@@ -8,7 +8,7 @@ internal class FoodDeparmentBuilder : DepartmentBuilder
 {
     public override string Name { get; protected set; } = "Food";
 
-    public FoodDeparmentBuilder(IUnitOfWork work) : base(work) { }
+    internal FoodDeparmentBuilder(IUnitOfWork work) : base(work) { }
 
     public override WareHouse BuildWareHouse()
     {
@@ -18,8 +18,8 @@ internal class FoodDeparmentBuilder : DepartmentBuilder
         return house;
     }
 
-    public override List<SellerConsultant> BuildConsultants() =>
-        _unitOfWork.GetFoodDepartmentSellerConsultants().ToList();
+    public override List<Employee> BuildConsultants() =>
+        _unitOfWork.GetPersonal().ToList();
 
     public override List<string> BuildEquipment()
     {

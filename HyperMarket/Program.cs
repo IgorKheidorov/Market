@@ -1,4 +1,6 @@
 ﻿using HyperMarket.Entities;
+using HyperMarket.Management;
+using SuperMarketEntities.Entities;
 using System.Diagnostics;
 namespace HyperMarket;
 
@@ -50,9 +52,34 @@ internal class Program
 
         // Main idea of multithreading is that different operations consume different recources and different CPU time
         // copy file -> time consuming -> CPU consuming thery low -> HDD adapter (physics ) very high()
-       
+        ManagementCompany managementCompany = new();
 
-        SuperMarket carefour = new SuperMarket("Carefour");        
+        HyperMarketItem carefour = managementCompany.CreateHyperMarket("Carefure", "Small");
+        HyperMarketItem carefourBig = managementCompany.CreateHyperMarket("CarefureBig1", "Big");
+        
+        ProductDescription milkDescription1 = new()
+        {
+            Details = new() {
+              { new DescriptionEntity("Еat content", "1.5%") },
+              {new DescriptionEntity("Producer", "Milk company") },
+              {new DescriptionEntity("Expirity date", "05-11-2024") },
+            }
+        };
+
+        ProductDescription milkDescription2 = new()
+        {
+            Details = new() {
+              { new DescriptionEntity("Еat content", "15%") },
+              {new DescriptionEntity("Producer", "Milk company") },
+              {new DescriptionEntity("Expirity date", "05-11-2024") },
+            }
+        };
+
+        carefour.AddProduct(new Product("Milk", "Food", 0.9f, milkDescription1)); 
+        carefour.AddProduct(new Product("Milk", "Food", 0.9f, milkDescription2));
+
+        carefourBig.AddProduct(new Product("Milk", "Food", 0.9f, milkDescription1));
+        carefourBig.AddProduct(new Product("Milk", "Food", 0.9f, milkDescription2));
 
         Buyer buyer1 = new Buyer("Mike", 16);
         Buyer buyer2 = new Buyer("Nike", 19);
@@ -63,18 +90,6 @@ internal class Program
         carefour.SetPreOrder(buyer1, "Want to Barber");
         carefour.SetPreOrder(buyer2, "Repair  IPhone");
         carefour.SetPreOrder(buyer3, "Want to Barber");
-
-
-        List<Task> tasks = new();
-        for (int i =0; i < 20; i++)
-        {
-            tasks.Add(Task.Run(() => SuperMarket.ChangeNumber()));
-        }
-
-        Task.WaitAll(tasks.ToArray());
-               
-        var resultString = SuperMarket.NumbersString;
-        int finalNumber = SuperMarket.Number;
 
         Stopwatch watch = new Stopwatch();
         watch.Start();

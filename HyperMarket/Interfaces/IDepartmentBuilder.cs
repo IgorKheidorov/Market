@@ -5,7 +5,7 @@ namespace HyperMarket.Interfaces;
 
 internal interface IDepartmentBuilder
 {
-    List<SellerConsultant> BuildConsultants();
+    List<Employee> BuildConsultants();
     List<string> BuildEquipment();
     WareHouse BuildWareHouse();
 

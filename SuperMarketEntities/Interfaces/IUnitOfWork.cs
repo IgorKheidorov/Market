@@ -2,11 +2,10 @@
 
 namespace SuperMarketEntities.Interfaces;
 
-public interface IUnitOfWork
+public interface IUnitOfWork: IDisposable
 {
     IEnumerable<Product> GetProducts(Func<Product, bool> filter);
-    IEnumerable<SellerConsultant> GetFoodDepartmentSellerConsultants();
-    IEnumerable<SellerConsultant> GetElectronicsDepartmentSellerConsultants();
     bool SaveProducts(IEnumerable<Product> products);
-    bool SaveConsultants(IEnumerable<SellerConsultant> consultants);
+    IEnumerable<Employee> GetPersonal();
+    bool SavePersonal(IEnumerable<Employee> employees);    
 }
